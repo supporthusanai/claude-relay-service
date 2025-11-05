@@ -71,13 +71,15 @@ const config = {
 
   // 🎯 Gemini API配置
   gemini: {
-    // 这些是从 Gemini CLI 工具逆向工程得到的公开 OAuth 凭据
-    // 用于支持 Gemini API 账户的 OAuth 认证流程
+    // Gemini OAuth 认证配置
+    // 这些凭据可以从 Gemini CLI 工具获取（公开的开发者凭据）
+    // 或使用您自己的 Google Cloud OAuth 应用凭据
+    // 必须设置以下环境变量：
+    //   GEMINI_OAUTH_CLIENT_ID - OAuth 2.0 Client ID
+    //   GEMINI_OAUTH_CLIENT_SECRET - OAuth 2.0 Client Secret
     oauth: {
-      clientId:
-        process.env.GEMINI_OAUTH_CLIENT_ID ||
-        '681255809395-oo8ft2oprdrnp9e3aqf6av3hmdib135j.apps.googleusercontent.com',
-      clientSecret: process.env.GEMINI_OAUTH_CLIENT_SECRET || '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',
+      clientId: process.env.GEMINI_OAUTH_CLIENT_ID || '',
+      clientSecret: process.env.GEMINI_OAUTH_CLIENT_SECRET || '',
       scopes: ['https://www.googleapis.com/auth/cloud-platform']
     }
   },
