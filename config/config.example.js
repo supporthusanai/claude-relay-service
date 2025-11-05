@@ -69,6 +69,19 @@ const config = {
     enablePromptCaching: process.env.DISABLE_PROMPT_CACHING !== '1'
   },
 
+  // 🎯 Gemini API配置
+  gemini: {
+    // 这些是从 Gemini CLI 工具逆向工程得到的公开 OAuth 凭据
+    // 用于支持 Gemini API 账户的 OAuth 认证流程
+    oauth: {
+      clientId:
+        process.env.GEMINI_OAUTH_CLIENT_ID ||
+        '681255809395-oo8ft2oprdrnp9e3aqf6av3hmdib135j.apps.googleusercontent.com',
+      clientSecret: process.env.GEMINI_OAUTH_CLIENT_SECRET || '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',
+      scopes: ['https://www.googleapis.com/auth/cloud-platform']
+    }
+  },
+
   // 🌐 代理配置
   proxy: {
     timeout: parseInt(process.env.DEFAULT_PROXY_TIMEOUT) || 600000, // 10分钟
